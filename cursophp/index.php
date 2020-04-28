@@ -4,9 +4,15 @@
   //$name = 'Fausto ' . $lastName;
   var_dump($name);
   $jobs = [
-    'PHP Developer',
-    'Python Developer',
-    'Devops'
+    [
+      'title' => 'PHP Developer',
+    ],
+    [
+      'title' => 'Python Developer',
+    ],
+    [
+      'title' => 'Devops',
+    ]
   ];
 
   var_dump($jobs[2]);
@@ -60,7 +66,7 @@
           <h3 class="border-bottom-gray" >Work Experience</h3>
           <ul>
             <li class="work-position">
-              <h5>Developer</h5>
+              <h5><?php echo $jobs[0]; ?></h5>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum itaque obcaecati nihil.</p>
               <strong>Achievements:</strong>
               <ul>
@@ -70,7 +76,7 @@
               </ul>
             </li>
             <li class="work-position">
-                <h5>PHP Developer</h5>
+                <h5><?php echo $jobs[1]; ?></h5>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum itaque obcaecati nihil.</p>
                 <strong>Achievements:</strong>
                 <ul>
@@ -80,7 +86,7 @@
                 </ul>
               </li>
               <li class="work-position">
-                  <h5>PHP Developer</h5>
+                  <h5><?php echo $jobs[2]; ?></h5>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum itaque obcaecati nihil.</p>
                   <strong>Achievements:</strong>
                   <ul>
