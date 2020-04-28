@@ -22,6 +22,8 @@
   ];
 
   var_dump($jobs[2]);
+
+
 ?>
 
 <!doctype html>
@@ -71,39 +73,24 @@
         <div>
           <h3 class="border-bottom-gray" >Work Experience</h3>
           <ul>
-            <li class="work-position">
-              <h5><?php echo $jobs[0]['title']; ?></h5>
-              <p><?php echo $jobs[0]['description']; ?></p>
-              <p>Period: <?php echo $jobs[0]['period']; ?></p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-              </ul>
-            </li>
-            <li class="work-position">
-                <h5><?php echo $jobs[1]['title']; ?></h5>
-                <p><?php echo $jobs[1]['description']; ?></p>
-                <p>Period: <?php echo $jobs[1]['period']; ?></p>
-                <strong>Achievements:</strong>
-                <ul>
-                  <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                  <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                  <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                </ul>
-              </li>
-              <li class="work-position">
-                  <h5><?php echo $jobs[2]['title']; ?></h5>
-                  <p><?php echo $jobs[2]['description']; ?></p>
-                  <p>Period: <?php echo $jobs[2]['period']; ?></p>
-                  <strong>Achievements:</strong>
-                  <ul>
-                    <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                    <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                    <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                  </ul>
-                </li>
+            <?php
+              $idx = 0;
+              //for($idx = 0; $idx < count($jobs); $idx = $idx +1){}
+              do{
+                echo '<li class="work-position">';
+                echo '  <h5>' . $jobs[$idx]['title'] . '</h5>';
+                echo '  <p>' . $jobs[$idx]['description'] . '</p>';
+                echo '  <p> Period: ' . $jobs[$idx]['period'] . '</p>';
+                echo '  <strong>Achievements:</strong>';
+                echo '  <ul>';
+                echo '    <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+                echo '    <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+                echo '    <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+                echo '  </ul>';
+                echo '</li>';
+                $idx = $idx + 1;
+              }while($idx < count($jobs));
+            ?>
           </ul>
         </div>
         <div>
