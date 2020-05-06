@@ -3,26 +3,44 @@
   $name = "Fausto $lastName";
   //$name = 'Fausto ' . $lastName;
   var_dump($name);
+  $limitMonths = 24;
   $jobs = [
     [
       'title' => 'PHP Developer',
       'description' => 'This is description of PHP Developer.',
-      'period' => '04/2018'
+      'period' => '04/2018',
+      'visible' => true,
+      'months' => 10
     ],
     [
       'title' => 'Python Developer',
       'description' => 'This is the description of Python Developer.',
-      'period' => '10/2016 - 04/2018'
+      'period' => '10/2016 - 04/2018',
+      'visible' => false,
+      'months' => 12
+    ],
+    [
+      'title' => 'C# Developer',
+      'description' => 'This is the description of Devops.',
+      'period' => '1/2015 - 10/2016',
+      'visible' => true,
+      'months' => 6
     ],
     [
       'title' => 'Devops',
       'description' => 'This is the description of Devops.',
-      'period' => '1/2015 - 10/2016'
+      'period' => '1/2015 - 10/2016',
+      'visible' => true,
+      'months' => 4
+    ],
+    [
+      'title' => 'Java Developer',
+      'description' => 'This is the description of Devops.',
+      'period' => '1/2015 - 10/2016',
+      'visible' => true,
+      'months' => 3
     ]
   ];
-
-  var_dump($jobs[2]);
-
 
 ?>
 
@@ -75,8 +93,16 @@
           <ul>
             <?php
               $idx = 0;
-              //for($idx = 0; $idx < count($jobs); $idx = $idx +1){}
-              do{
+              $totalMonths = 0;
+              for($idx = 0; $idx < count($jobs); $idx ++){
+                $totalMonths = $totalMonths + $jobs[$idx]['months'];
+                if($totalMonths > $limitMonths){
+                break;
+                }
+
+                if ($jobs[$idx]['visible'] != true ){
+                  continue;
+                }
                 echo '<li class="work-position">';
                 echo '  <h5>' . $jobs[$idx]['title'] . '</h5>';
                 echo '  <p>' . $jobs[$idx]['description'] . '</p>';
@@ -88,8 +114,10 @@
                 echo '    <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
                 echo '  </ul>';
                 echo '</li>';
+              }
+              /*do{
                 $idx = $idx + 1;
-              }while($idx < count($jobs));
+              }while($idx < count($jobs));*/
             ?>
           </ul>
         </div>
