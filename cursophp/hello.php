@@ -75,4 +75,18 @@
     var_dump($numbers);
     echo "<br>";
     echo "==========================================";
+    echo "<br>";
+    echo "<br>";
+    $num1 = 2;
+    $num2 = 3;
+
+    $result = $num2.$num1 + $num2;
+    $result = $num2 * ($num1 + $num2);
+
+    $valor = 0;
+    if($valor > 5 && $valor < 10){}
+    if($valor >= 0 && $valor <= 20){}
+    if($valor === "10"){}
+    $valor = 3;
+    if(($valor > 0 && $valor < 5) || ($valor > 10 && $valor < 15)){}
 ?>
