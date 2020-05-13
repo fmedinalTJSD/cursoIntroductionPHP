@@ -1,73 +1,13 @@
 <?php
+  include_once("jobs.php");
+  //include("jobs.php");
+  //require("jobs.php");
+  
   $lastName = 'Medina Lopez';
   $name = "Fausto $lastName";
   //$name = 'Fausto ' . $lastName;
   var_dump($name);
   $limitMonths = 24;
-  $jobs = [
-    [
-      'title' => 'PHP Developer',
-      'description' => 'This is description of PHP Developer.',
-      'period' => '04/2018',
-      'visible' => true,
-      'months' => 10
-    ],
-    [
-      'title' => 'Python Developer',
-      'description' => 'This is the description of Python Developer.',
-      'period' => '10/2016 - 04/2018',
-      'visible' => false,
-      'months' => 12
-    ],
-    [
-      'title' => 'C# Developer',
-      'description' => 'This is the description of Devops.',
-      'period' => '1/2015 - 10/2016',
-      'visible' => true,
-      'months' => 6
-    ],
-    [
-      'title' => 'Devops',
-      'description' => 'This is the description of Devops.',
-      'period' => '1/2015 - 10/2016',
-      'visible' => true,
-      'months' => 4
-    ],
-    [
-      'title' => 'Java Developer',
-      'description' => 'This is the description of Devops.',
-      'period' => '1/2015 - 10/2016',
-      'visible' => true,
-      'months' => 3
-    ]
-  ];
-
-  function getPeriod($months){
-    $years = floor( $months / 12);
-    $extraMonths = $months % 12;
-    if ($years > 0){ return "$years years $extraMonths monthns"; }
-    else {  return "$extraMonths monthns"; }
-  }
-
-  function printJob($job){
-
-    if ($job['visible'] == false ){
-      return;
-    }
-
-    echo '<li class="work-position">';
-    echo '  <h5>' . $job['title'] . '</h5>';
-    echo '  <p>' . $job['description'] . '</p>';
-    echo '  <p> Period: ' . $job['period'] . '</p>';
-    echo '  <p> Duration: ' . getPeriod($job['months']) . '</p>';
-    echo '  <strong>Achievements:</strong>';
-    echo '  <ul>';
-    echo '    <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-    echo '    <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-    echo '    <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-    echo '  </ul>';
-    echo '</li>';
-  }
 
 ?>
 
@@ -119,12 +59,11 @@
           <h3 class="border-bottom-gray" >Work Experience</h3>
           <ul>
             <?php
-              $idx = 0;
               $totalMonths = 0;
               for($idx = 0; $idx < count($jobs); $idx ++){
-                $totalMonths = $totalMonths + $jobs[$idx]['months'];
+                $totalMonths = $totalMonths + $jobs[$idx]->months;
                 if($totalMonths > $limitMonths){
-                break;
+                  break;
                 }
                 printJob($jobs[$idx]);
               }
