@@ -1,18 +1,39 @@
 <?php
 
 class Job{
-    public $title;
+    private $title;
     public $description;
     public $visible;
     public $months;
     public $period;
 
+    public function __construct(){}
+
+    public function __construct1($title, $description, $visible, $months, $period){
+      $this->setTitle($title);
+      $this->description = $description;
+      $this->period = $period;
+      $this->visible = $visible;
+      $this->months = $period;
+    }
+
     public function setTitle($title){
+      if($title ==""){
+        $this->title = "N/A";
+      }else{
         $this->title = $title;
+      }
     }
 
     public function getTitle(){
         return $this->title;
+    }
+
+    public function getPeriodAsString(){
+      $years = floor( $this->months / 12);
+      $extraMonths =  $this->months % 12;
+      if ($years > 0){ return "$years years $extraMonths months"; }
+      else {  return "$extraMonths monthns"; }
     }
 }
 
@@ -31,16 +52,19 @@ $job2->visible = true;
 $job2->months = 10;
 
 $job3 = new Job();
-$job3->setTitle("Devops");
+$job3->setTitle("");
 $job3->description = "This is description of Devops.";
 $job3->period = "1/2015 - 10/2016";
 $job3->visible = true;
 $job3->months = 4;
 
+$job4 = new Job("Java Developer","This is the description of Java Developer",true,"1/2015 - 10/2016",3);
+
 $jobs = [
     $job1,
     $job2,
-    $job3
+    $job3,
+    $job4
   ];
 /*,
     [
@@ -58,12 +82,6 @@ $jobs = [
       'months' => 3
     ]*/
   
-  function getPeriod($months){
-    $years = floor( $months / 12);
-    $extraMonths = $months % 12;
-    if ($years > 0){ return "$years years $extraMonths months"; }
-    else {  return "$extraMonths monthns"; }
-  }
 
   function printJob($job){
 
@@ -72,10 +90,10 @@ $jobs = [
     }
 
     echo '<li class="work-position">';
-    echo '  <h5>' . $job->title . '</h5>';
+    echo '  <h5>' . $job->getTitle() . '</h5>';
     echo '  <p>' . $job->description . '</p>';
     echo '  <p> Period: ' . $job->period . '</p>';
-    echo '  <p> Duration: ' . getPeriod($job->months) . '</p>';
+    echo '  <p> Duration: ' . $job->getPeriodAsString() . '</p>';
     echo '  <strong>Achievements:</strong>';
     echo '  <ul>';
     echo '    <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
