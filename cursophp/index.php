@@ -37,10 +37,10 @@
         <h1><?php echo $name ?></h1>
         <h2>PHP Developer</h2>
         <ul>
-          <li>Mail: hector@mail.com</li>
+          <li>Mail: fausto@mail.com</li>
           <li>Phone: 1234567890</li>
           <li>LinkedIn: https://linkedin.com</li>
-          <li>Twitter: @hectorbenitez</li>
+          <li>Twitter: @medinafausto</li>
         </ul>
       </div>
     </div>
@@ -65,7 +65,7 @@
                 if($totalMonths > $limitMonths){
                   break;
                 }
-                printJob($jobs[$idx]);
+                printElement($jobs[$idx]);
               }
               /*do{
                 $idx = $idx + 1;
@@ -75,35 +75,16 @@
         </div>
         <div>
             <h3 class="border-bottom-gray">Projects</h3>
-            <div class="project">
-                <h5>Project X</h5>
-                <div class="row">
-                    <div class="col-3">
-                        <img id="profile-picture" src="https://ui-avatars.com/api/?name=John+Doe&size=255" alt="">
-                      </div>
-                      <div class="col">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius earum corporis at accusamus quisquam hic quos vel? Tenetur, ullam veniam consequatur esse quod cum, quam cupiditate assumenda natus maiores aperiam.</p>
-                        <strong>Technologies used:</strong>
-                        <span class="badge badge-secondary">PHP</span>
-                        <span class="badge badge-secondary">HTML</span>
-                        <span class="badge badge-secondary">CSS</span>
-                      </div>
-                </div>
-            </div>
-            <div class="project">
-                <h5>Project X</h5>
-                <div class="row">
-                    <div class="col-3">
-                        <img id="profile-picture" src="https://ui-avatars.com/api/?name=John+Doe&size=255" alt="">
-                      </div>
-                      <div class="col">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius earum corporis at accusamus quisquam hic quos vel? Tenetur, ullam veniam consequatur esse quod cum, quam cupiditate assumenda natus maiores aperiam.</p>
-                        <strong>Technologies used:</strong>
-                        <span class="badge badge-secondary">PHP</span>
-                        <span class="badge badge-secondary">HTML</span>
-                        <span class="badge badge-secondary">CSS</span>
-                      </div>
-                </div>
+            <ul>
+              <?php
+                for($idx = 0; $idx < count($projects); $idx ++){
+                  printElement($projects[$idx]);
+                }
+                /*do{
+                  $idx = $idx + 1;
+                }while($idx < count($jobs));*/
+              ?>
+            </ul>
             </div>
           </div>
       </div>
