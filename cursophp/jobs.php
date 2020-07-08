@@ -1,17 +1,18 @@
 <?php
 
-require "app/Models/Job.php";
+require_once 'vendor/autoload.php';
+
+/*require "app/Models/Job.php";
 require "app/Models/Project.php";
 require_once "app/Models/Printable.php";
+
 require_once "lib1/Project.php";
-
-/*$job1 = new Job();
-$job1->setTitle("PHP Developer");
-$job1->description = "This is description of PHP Developer.";
-$job1->period = "04/2018";
-$job1->visible = true;
-$job1->months = 10;
-
+*/
+use App\Models\{Job, Project, Printable};
+/*use App\Models\Job;
+use App\Models\Project;
+*/
+/*
 $job2 = new Job();
 $job2->setTitle("Python Developer");
 $job2->description = "This is description of Python Developer.";
@@ -30,6 +31,7 @@ $job1 = new Job("PHP Developer","This is the description of PHP Developer",true,
 $job4 = new Job("Java Developer","This is the description of Java Developer",true,"1/2015 - 10/2016",3);
 
 $project1 = new Project("Project 1", "Description 1",true,'',0);
+
 
 $jobs = [
     $job1,
