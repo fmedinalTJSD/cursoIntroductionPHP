@@ -2,13 +2,14 @@
 
 require_once 'vendor/autoload.php';
 
+use App\Models\{Job, Project, Printable};
+
 /*require "app/Models/Job.php";
 require "app/Models/Project.php";
 require_once "app/Models/Printable.php";
 
 require_once "lib1/Project.php";
 */
-use App\Models\{Job, Project, Printable};
 /*use App\Models\Job;
 use App\Models\Project;
 */

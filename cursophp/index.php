@@ -1,4 +1,21 @@
 <?php
+
+use Illuminate\Database\Capsule\Manager as Capsule;
+use App\Models\Job;
+
+$capsule = new Capsule;
+
+$capsule->addConnection([
+    'driver'    => 'mysql',
+    'host'      => 'localhost',
+    'database'  => 'coursephp',
+    'username'  => 'root',
+    'password'  => '',
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix'    => '',
+]);
+
   include_once("jobs.php");
   //include("jobs.php");
   //require("jobs.php");
